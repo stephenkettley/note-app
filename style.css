@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+    background-image: linear-gradient(to left, rgb(164, 45, 255), rgb(220, 184, 255));
+    height: 100vh;
+}
+
+.heading {
+    font-size: 36px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+
+}
+
+.sub-heading {
+    font-size: 16px;
+}
+
+.heading, .sub-heading {
+    text-align: center;
+    color: white;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    gap: 40px;
+    justify-content: center;
+    padding: 50px;
+}
+
+.note {
+    height: 200px;
+    color: black;
+    border-radius: 15px;
+    resize: none;
+    box-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+    padding: 17px;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+}
+
+.note::placeholder {
+    color: black;
+    opacity: 0.5;
+}
+
+.btn {
+    height: 200px;
+    border: none;
+    font-size: 36px;
+    font-weight: 600;
+    padding: 17px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+    background-color: rgba(255, 255, 255, 0.5);
+    color: rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
+.note:hover, .note:focus {
+    box-shadow: 0 0 10px rgba(0,0,0,0.7);
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,0.7);
+    transition: all 0.2s ease;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: rgba(0,0,0,0.5);
+}
+
