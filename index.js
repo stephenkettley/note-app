@@ -1,6 +1,11 @@
 const btnEl = document.getElementById("btn");
 const containerEl = document.getElementById("container");
 
+Array.from(getNotes()).forEach((note) => {
+  const noteEl = createNoteElement(note.id, note.content);
+  containerEl.insertBefore(noteEl, btnEl);
+});
+
 btnEl.addEventListener("click", addNote);
 
 function createNoteElement(id, content) {
@@ -25,13 +30,29 @@ function createNoteElement(id, content) {
 
 function deleteNote(id, element) {}
 
-function updateNote(id, elementValue) {}
+function updateNote(id, content) {
+  const notes = getNotes();
+  const target = notes.filter((note) => note.id == id)[0];
+  target.content = content;
+  saveNoteLocalStorage(notes);
+}
 
 function addNote() {
+  const notes = getNotes();
   const noteObj = {
     id: Math.floor(Math.random() * 100000),
     content: "",
   };
   const noteEl = createNoteElement(noteObj.id, noteObj.content);
   containerEl.insertBefore(noteEl, btnEl);
+  notes.push(noteObj);
+  saveNoteLocalStorage(notes);
+}
+
+function saveNoteLocalStorage(notes) {
+  localStorage.setItem("note-app", JSON.stringify(notes));
+}
+
+function getNotes() {
+  return JSON.parse(localStorage.getItem("note-app") || "[]");
 }
