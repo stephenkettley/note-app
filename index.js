@@ -28,7 +28,11 @@ function createNoteElement(id, content) {
   return element;
 }
 
-function deleteNote(id, element) {}
+function deleteNote(id, element) {
+  const notes = getNotes().filter((note) => note.id != id);
+  saveNoteLocalStorage(notes);
+  containerEl.removeChild(element);
+}
 
 function updateNote(id, content) {
   const notes = getNotes();
